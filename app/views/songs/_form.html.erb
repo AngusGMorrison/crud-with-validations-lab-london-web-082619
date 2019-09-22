@@ -1,0 +1,42 @@
+<% if @song.errors.any? %>
+  <div id=validation_errors>
+    <p>The following errors were found:</p>
+    <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @song do |f| %>
+  <%= f.label :title %> <br>
+  <%= f.text_field :title %> <br>
+  <br>
+
+<!--
+  <%= content_tag(:p, "Released?") %>
+  <%= f.label "released_true", "Yes" %>
+  <%= f.radio_button :released, true %> <br>
+  <%= f.label "released_false", "No" %>
+  <%= f.radio_button :released, false %> <br>
+  <br>
+-->
+
+  <%= f.label :released %> <br>
+  <%= f.check_box :released %> <br>
+  <br>
+
+  <%= f.label :release_year %> <br>
+  <%= f.number_field :release_year %> <br>
+  <br>
+
+  <%= f.label :artist_name %> <br>
+  <%= f.text_field :artist_name %> <br>
+  <br>
+
+  <%= f.label :genre %> <br>
+  <%= f.text_field :genre %> <br>
+  <br>
+  <%= f.submit %>
+<% end %>

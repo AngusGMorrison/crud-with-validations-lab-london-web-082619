@@ -1,0 +1,15 @@
+<h1>All Songs</h1>
+
+<% @songs.each do |song| %>
+  <h2><%= link_to song.title, song_path(song) %></h2>
+
+  <ul>
+    <li><%= "Released: #{song.released}"  %></li>
+    <li><%= "Release year: #{song.release_year}" if song.released %></li>
+    <li><%= "Artist: #{song.artist_name}"  %></li>
+    <li><%= "Genre: #{song.genre}" if song.genre %></li>
+  </ul>
+  <br>
+
+  <%= link_to "Edit", edit_song_path(song) %>
+<% end %>
